@@ -1,7 +1,9 @@
-GDAL_LIBRARY_PATH = r"D:\Cimetiere\backend\venv\Lib\site-packages\osgeo\gdal.dll"
-GEOS_LIBRARY_PATH = r"D:\Cimetiere\backend\venv\Lib\site-packages\osgeo\geos_c.dll"
+import os
+import platform
 
-
+if platform.system() == "Windows":
+    GDAL_LIBRARY_PATH = r"D:\Cimetiere\backend\venv\Lib\site-packages\osgeo\gdal.dll"
+    GEOS_LIBRARY_PATH = r"D:\Cimetiere\backend\venv\Lib\site-packages\osgeo\geos_c.dll"
 
 import os
 from pathlib import Path
