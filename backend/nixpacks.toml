@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["gdal", "postgresql", "postgis"]
+nixPkgs = ["gdal", "libgdal", "geos", "proj", "python311"]
 
 [phases.install]
 cmds = ["pip install -r requirements.txt"]
