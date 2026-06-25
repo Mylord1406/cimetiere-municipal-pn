@@ -1,5 +1,17 @@
 from .base import *
 import os
+import subprocess
+import os
+
+# Trouver GDAL automatiquement sur Linux
+try:
+    gdal_path = subprocess.check_output(['gdal-config', '--prefix']).decode().strip()
+    GDAL_LIBRARY_PATH = f"{gdal_path}/lib/libgdal.so"
+    GEOS_LIBRARY_PATH = "/usr/lib/libgeos_c.so"
+except Exception:
+    pass
+
+
 
 DEBUG = False
 
