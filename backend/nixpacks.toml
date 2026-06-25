@@ -1,8 +1,10 @@
 [phases.setup]
-nixPkgs = ["gdal", "libgdal", "geos", "proj", "python311"]
+nixPkgs = ["python311", "gdal", "geos", "proj", "postgresql_16.dev", "gcc"]
 
 [phases.install]
-cmds = ["pip install -r requirements.txt"]
+cmds = [
+  "pip install -r requirements.txt"
+]
 
 [start]
 cmd = "python manage.py migrate --settings=config.settings.production && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"
