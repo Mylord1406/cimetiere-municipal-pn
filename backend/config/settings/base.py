@@ -92,26 +92,16 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 # Base de données PostgreSQL + PostGIS
-import dj_database_url
-
-DATABASE_URL = env("DATABASE_URL", default=None)
-
-if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL)
+DATABASES = {
+    "default": {
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "xafAPqSFQtnXzkLfANrbMIAXxjXeeCTR",
+        "HOST": "thomas.proxy.rlwy.net",
+        "PORT": "35213",
     }
-    DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.contrib.gis.db.backends.postgis",
-            "NAME": env("POSTGRES_DB"),
-            "USER": env("POSTGRES_USER"),
-            "PASSWORD": env("POSTGRES_PASSWORD"),
-            "HOST": env("POSTGRES_HOST", default="localhost"),
-            "PORT": env("POSTGRES_PORT", default="5432"),
-        }
-    }
+}
 # Modèle utilisateur custom
 AUTH_USER_MODEL = "auth_app.Utilisateur"
 
