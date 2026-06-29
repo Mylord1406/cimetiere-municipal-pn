@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     proj-bin \
     postgresql-client \
+    libcairo2-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
