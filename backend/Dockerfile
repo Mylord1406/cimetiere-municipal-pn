@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
+# Trouver et lier GDAL au bon endroit
+RUN ln -s $(find /usr -name "libgdal.so*" | head -1) /usr/lib/libgdal.so || true
+
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 
