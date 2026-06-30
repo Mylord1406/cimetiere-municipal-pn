@@ -17,13 +17,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-# Base de données PostgreSQL Railway
 DATABASES = {
     "default": {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": os.environ.get("PGDATABASE", "railway"),
-        "USER": os.environ.get("PGUSER", "postgres"),
-        "PASSWORD": os.environ.get("PGPASSWORD"),
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "xafAPqSFQtnXzkLfANrbMIAXxjXeeCTR",
         "HOST": "thomas.proxy.rlwy.net",
         "PORT": "35213",
     }
