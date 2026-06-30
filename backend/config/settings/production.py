@@ -21,14 +21,13 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     "default": {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": os.environ.get("PGDATABASE"),
-        "USER": os.environ.get("PGUSER"),
+        "NAME": os.environ.get("PGDATABASE", "railway"),
+        "USER": os.environ.get("PGUSER", "postgres"),
         "PASSWORD": os.environ.get("PGPASSWORD"),
-        "HOST": os.environ.get("PGHOST"),
-        "PORT": os.environ.get("PGPORT", "5432"),
+        "HOST": "thomas.proxy.rlwy.net",
+        "PORT": "35213",
     }
 }
-
 # Sécurité
 SECRET_KEY = os.environ.get("SECRET_KEY", "change-me-in-production")
 
