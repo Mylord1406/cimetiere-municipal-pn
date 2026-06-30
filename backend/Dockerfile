@@ -35,4 +35,4 @@ RUN python manage.py collectstatic --noinput --settings=config.settings.producti
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py migrate --settings=config.settings.production && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"]
+CMD ["sh", "-c", "python manage.py migrate --settings=config.settings.production && echo 'MIGRATIONS OK, STARTING GUNICORN' && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-level debug"]
