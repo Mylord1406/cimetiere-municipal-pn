@@ -38,4 +38,4 @@ EXPOSE 8000
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-CMD ["/app/start.sh"]
+CMD ["sh", "-c", "python manage.py migrate --settings=config.settings.production && python manage.py runserver 0.0.0.0:${PORT:-8000} --settings=config.settings.production"]
